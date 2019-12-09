@@ -1,0 +1,34 @@
+TODO Insurance System:
+ - Model Client
+     * Features:
+        - Registry
+        - SendAppointmentRequest
+        - SendPolicyRequest
+ - Model InsuranceAgent
+    * Features:
+        - AddClient
+        - UpdateClient
+        - DeleteClient
+        - FindClient
+        - FindClients (by params, sort by param)
+        - SellPolicy
+        - UpdatePolicy
+        - RenewPolicy
+        - SendRequestToCancelPolicy
+ - Model AgentManager (extend InsuranceAgent)
+     * Features:
+         * have all Agent features
+         - ViewCancelPolicyRequests
+         - RejectCancelPolicyRequest
+         - AcceptCancelPolicyRequest
+         - AddAgent
+         - UpdateAgent
+         - DeleteAgent
+         - ViewAgentsStats
+         - ViewPolicyStats
+ - Model abstract class InsurancePolicy
+    - Model HomeInsurancePolicy
+    - Model CarInsurancePolicy
+    - Model LifeInsurancePolicy
+ - Model Appointment
+
