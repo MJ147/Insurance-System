@@ -13,7 +13,7 @@ public interface ClientDAO extends CrudRepository<Client, Long> {
 
     Client findById(Client client);
 
-    List<Client> findAllByFirstNameAndsAndSecondName(String firstName, String secondName);
+    List<Client> findAllByFirstNameAndSecondName(String firstName, String secondName);
 
     List<Client> listAll();
 
