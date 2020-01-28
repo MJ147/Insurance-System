@@ -1,6 +1,6 @@
 package com.mja.model.policy;
 
-public enum TypeOfPolicyEnum {
+public enum TypeOfPolicy {
 
     HOME_INSURANCE,
     CAR_INSURANCE,
