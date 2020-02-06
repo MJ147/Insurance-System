@@ -1,20 +1,14 @@
 package com.mja.model.agent;
 
-import com.mja.model.policy.InsurancePolicy;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
 
 @Entity
 @Data
-public class InsuranceAgent {
+public class InsuranceAgent extends Agent {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String firstName;
-    private String secondName;
-    private InsurancePolicy insurancePolicy;
+    @ManyToOne
+    @JoinColumn(name = "agent_manager_id")
+    private AgentManager agentManager;
 }
