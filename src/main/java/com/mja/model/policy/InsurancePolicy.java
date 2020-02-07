@@ -16,3 +16,5 @@ public abstract class InsurancePolicy {
     private Client client;
     private InsuranceAgent insuranceAgent;
 }
+
+
