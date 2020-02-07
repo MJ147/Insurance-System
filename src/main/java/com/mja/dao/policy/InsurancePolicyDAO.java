@@ -1,6 +1,5 @@
 package com.mja.dao.policy;
 
-import com.mja.model.client.Client;
 import com.mja.model.policy.InsurancePolicy;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -8,12 +7,17 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface InsurancePolicyDao extends CrudRepository<InsurancePolicy, Long> {
+public interface InsurancePolicyDAO extends CrudRepository<InsurancePolicy, Long> {
 
     InsurancePolicy save(InsurancePolicy insurancePolicy);
 
-    List<InsurancePolicy> removeById(Long id);
+    InsurancePolicy findById(InsurancePolicy insurancePolicy);
 
-    List<InsurancePolicy> findAll();
+    InsurancePolicy findByClient_Id(InsurancePolicy insurancePolicy);
 
+    List<InsurancePolicy> findAllById(Long id);
+
+    List<InsurancePolicy> listAll();
+
+    InsurancePolicy deleteInsurancePoliciesById(Long id);
 }
