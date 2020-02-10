@@ -31,8 +31,10 @@ public class InsuranceAgent  {
     @JsonManagedReference
     private List<InsurancePolicy> insurancePolicies;
 
-    public InsuranceAgent(String firstName, String secondName) {
+    public InsuranceAgent(String firstName, String secondName, List<Client> clients, List<InsurancePolicy> insurancePolicies) {
         this.firstName = firstName;
         this.secondName = secondName;
+        this.clients = clients;
+        this.insurancePolicies = insurancePolicies;
     }
 }

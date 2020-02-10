@@ -5,12 +5,14 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.mja.model.agent.InsuranceAgent;
 import com.mja.model.policy.InsurancePolicy;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Data
+@RequiredArgsConstructor
 public class Client {
 
     @Id
@@ -25,4 +27,10 @@ public class Client {
     @JoinColumn(name = "insurance_agent")
     @JsonBackReference
     private InsuranceAgent insuranceAgent;
+
+    public Client(String firstName, String secondName, List<InsurancePolicy> insurancePolicies) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.insurancePolicies = insurancePolicies;
+    }
 }
