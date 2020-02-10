@@ -1,4 +1,4 @@
-package com.mja.model.policy.objecttoinsurance;
+package com.mja.model.policy.toinsurance;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mja.model.policy.CarInsurancePolicy;
