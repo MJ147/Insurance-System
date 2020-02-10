@@ -1,7 +1,7 @@
 package com.mja.model.policy;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.mja.model.policy.objecttoinsurance.Home;
+import com.mja.model.policy.insuranceobject.Home;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
