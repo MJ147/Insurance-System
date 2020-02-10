@@ -1,21 +1,28 @@
 package com.mja.model.client;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.mja.model.agent.InsuranceAgent;
 import com.mja.model.policy.InsurancePolicy;
 import lombok.Data;
 
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
 public class Client {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String secondName;
-    private InsurancePolicy insurancePolicy;
+    @OneToMany(mappedBy = "client")
+    @JsonManagedReference
+    private List<InsurancePolicy> insurancePolicies;
+    @ManyToOne
+    @JoinColumn(name = "insurance_agent")
+    @JsonBackReference
+    private InsuranceAgent insuranceAgent;
 }
