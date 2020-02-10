@@ -4,12 +4,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mja.model.agent.InsuranceAgent;
 import com.mja.model.client.Client;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Data
+@RequiredArgsConstructor
 public abstract class InsurancePolicy {
 
     @Id
@@ -25,7 +27,14 @@ public abstract class InsurancePolicy {
     private Client client;
     @ManyToOne
     @JoinColumn(name = "insurance_agent_id")
+    @JsonBackReference
     private InsuranceAgent insuranceAgent;
+
+    public InsurancePolicy(TypeOfPolicy typeOfPolicy, LocalDate startDate, LocalDate endDate) {
+        this.typeOfPolicy = typeOfPolicy;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
 }
 
 
