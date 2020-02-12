@@ -1,4 +1,4 @@
-package com.mja.service;
+package com.mja.service.agent;
 
 import com.mja.model.agent.InsuranceAgent;
 import org.springframework.stereotype.Service;

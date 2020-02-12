@@ -1,4 +1,4 @@
-package com.mja.service;
+package com.mja.service.agent;
 
 import com.mja.model.agent.AgentManager;
 import com.mja.model.agent.InsuranceAgent;

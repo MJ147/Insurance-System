@@ -17,18 +17,14 @@ public class Home {
     private Long id;
     private int area;
     private int numberOfFloors;
-    private boolean isCarGarage;
-    private boolean isAlarm;
     @OneToOne
     @JoinColumn(name = "home_insurance_id")
     @JsonBackReference
     private HomeInsurancePolicy homeInsurancePolicy;
 
-    public Home(int area, int numberOfFloors, boolean isCarGarage, boolean isAlarm) {
+    public Home(int area, int numberOfFloors) {
         this.area = area;
         this.numberOfFloors = numberOfFloors;
-        this.isCarGarage = isCarGarage;
-        this.isAlarm = isAlarm;
     }
 }
 

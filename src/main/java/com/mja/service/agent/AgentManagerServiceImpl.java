@@ -1,8 +1,7 @@
-package com.mja.service.impl;
+package com.mja.service.agent;
 
 import com.mja.dao.agent.AgentManagerDao;
 import com.mja.model.agent.AgentManager;
-import com.mja.service.AgentManagerService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
