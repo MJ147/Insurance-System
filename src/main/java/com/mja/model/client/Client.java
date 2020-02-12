@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,15 +23,27 @@ public class Client {
     private String secondName;
     @OneToMany(mappedBy = "client")
     @JsonManagedReference
-    private List<InsurancePolicy> insurancePolicies;
+    private List<InsurancePolicy> insurancePolicies = new ArrayList<>();
     @ManyToOne
     @JoinColumn(name = "insurance_agent")
     @JsonBackReference
     private InsuranceAgent insuranceAgent;
 
+    public Client(String firstName, String secondName) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.insurancePolicies = new ArrayList<>();
+    }
+
+    public Client(String firstName, String secondName, InsurancePolicy insurancePolicies) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.insurancePolicies.add(insurancePolicies);
+    }
+
     public Client(String firstName, String secondName, List<InsurancePolicy> insurancePolicies) {
         this.firstName = firstName;
         this.secondName = secondName;
-        this.insurancePolicies = insurancePolicies;
+        this.insurancePolicies.addAll(insurancePolicies);
     }
 }

@@ -3,11 +3,11 @@ package com.mja.model.agent;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.mja.model.client.Client;
-import com.mja.model.policy.InsurancePolicy;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,15 +26,16 @@ public class InsuranceAgent  {
     private AgentManager agentManager;
     @OneToMany(mappedBy = "insuranceAgent")
     @JsonManagedReference
-    private List<Client> clients;
-    @OneToMany(mappedBy = "insuranceAgent")
-    @JsonManagedReference
-    private List<InsurancePolicy> insurancePolicies;
+    private List<Client> clients = new ArrayList<>();
 
-    public InsuranceAgent(String firstName, String secondName, List<Client> clients, List<InsurancePolicy> insurancePolicies) {
+    public InsuranceAgent(String firstName, String secondName) {
         this.firstName = firstName;
         this.secondName = secondName;
-        this.clients = clients;
-        this.insurancePolicies = insurancePolicies;
+    }
+
+    public InsuranceAgent(String firstName, String secondName, List<Client> clients) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.clients.addAll(clients);
     }
 }

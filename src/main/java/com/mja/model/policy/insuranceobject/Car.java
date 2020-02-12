@@ -13,23 +13,21 @@ import javax.persistence.*;
 public class Car {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String make;
     private String model;
     private int modelYear;
     private String engine;
-    private boolean isAlarm;
     @OneToOne
-    @JoinColumn(name = "car_insurance_id")
+    @MapsId
     @JsonBackReference
     private CarInsurancePolicy carInsurancePolicy;
 
-    public Car(String make, String model, int modelYear, String engine, boolean isAlarm) {
+    public Car(String make, String model, int modelYear, String engine) {
         this.make = make;
         this.model = model;
         this.modelYear = modelYear;
         this.engine = engine;
-        this.isAlarm = isAlarm;
     }
 }
