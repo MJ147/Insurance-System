@@ -1,8 +1,7 @@
-package com.mja.service.impl;
+package com.mja.service.client;
 
 import com.mja.dao.client.ClientDao;
 import com.mja.model.client.Client;
-import com.mja.service.ClientService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

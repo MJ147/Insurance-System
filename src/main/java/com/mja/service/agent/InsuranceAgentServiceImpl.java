@@ -1,8 +1,7 @@
-package com.mja.service.impl;
+package com.mja.service.agent;
 
 import com.mja.dao.agent.InsuranceAgentDao;
 import com.mja.model.agent.InsuranceAgent;
-import com.mja.service.InsuranceAgentService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

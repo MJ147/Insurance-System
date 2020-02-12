@@ -1,4 +1,4 @@
-package com.mja.service;
+package com.mja.service.client;
 
 import com.mja.model.client.Client;
 import org.springframework.stereotype.Service;
