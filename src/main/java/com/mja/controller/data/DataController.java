@@ -1,4 +1,4 @@
-package com.mja.controller;
+package com.mja.controller.data;
 
 import com.mja.util.DataGenerator;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/data")
 public class DataController {
 
-    DataGenerator dataGenerator;
+    private DataGenerator dataGenerator;
     public DataController(DataGenerator dataGenerator) {
         this.dataGenerator = dataGenerator;
     }
