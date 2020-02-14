@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mja.model.client.Client;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -18,5 +19,6 @@ public class InsurancePolicy {
     @ManyToOne
     @JoinColumn(name = "client_id")
     @JsonBackReference
+    @ToString.Exclude
     private Client client;
 }

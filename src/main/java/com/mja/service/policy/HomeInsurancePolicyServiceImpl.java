@@ -1,8 +1,6 @@
 package com.mja.service.policy;
 
-import com.mja.dao.policy.CarInsurancePolicyDao;
 import com.mja.dao.policy.HomeInsurancePolicyDao;
-import com.mja.model.policy.CarInsurancePolicy;
 import com.mja.model.policy.HomeInsurancePolicy;
 import org.springframework.stereotype.Service;
 

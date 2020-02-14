@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mja.model.policy.HomeInsurancePolicy;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -17,14 +18,19 @@ public class Home {
     private Long id;
     private int area;
     private int numberOfFloors;
+    private boolean isAlarm;
+    private boolean isGarage;
     @OneToOne
-    @JoinColumn(name = "home_insurance_id")
+    @MapsId
     @JsonBackReference
+    @ToString.Exclude
     private HomeInsurancePolicy homeInsurancePolicy;
 
-    public Home(int area, int numberOfFloors) {
+    public Home(int area, int numberOfFloors, boolean isAlarm, boolean isGarage) {
         this.area = area;
         this.numberOfFloors = numberOfFloors;
+        this.isAlarm = isAlarm;
+        this.isGarage = isGarage;
     }
 }
 
