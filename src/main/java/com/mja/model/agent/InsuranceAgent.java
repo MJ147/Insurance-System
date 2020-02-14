@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.mja.model.client.Client;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class InsuranceAgent  {
     @ManyToOne
     @JoinColumn(name = "agent_manager_id")
     @JsonBackReference
+    @ToString.Exclude
     private AgentManager agentManager;
     @OneToMany(mappedBy = "insuranceAgent")
     @JsonManagedReference

@@ -6,6 +6,7 @@ import com.mja.model.agent.InsuranceAgent;
 import com.mja.model.policy.InsurancePolicy;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class Client {
     @ManyToOne
     @JoinColumn(name = "insurance_agent")
     @JsonBackReference
+    @ToString.Exclude
     private InsuranceAgent insuranceAgent;
 
     public Client(String firstName, String secondName) {
