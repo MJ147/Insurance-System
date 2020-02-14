@@ -1,8 +1,6 @@
 package com.mja.model.policy;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.mja.model.client.Client;
 import com.mja.model.policy.insuranceobject.Car;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -19,10 +17,6 @@ public class CarInsurancePolicy extends InsurancePolicy {
     private TypeOfPolicy typeOfPolicy;
     private LocalDate startDate;
     private LocalDate endDate;
-    @ManyToOne
-    @JoinColumn(name = "client_id")
-    @JsonBackReference
-    private Client client;
     @OneToOne(mappedBy = "carInsurancePolicy" )
     @JsonManagedReference
     Car car;
