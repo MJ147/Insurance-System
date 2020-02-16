@@ -1,15 +1,15 @@
 package com.mja.util;
 
-import com.mja.dao.agent.AgentManagerDao;
-import com.mja.dao.agent.InsuranceAgentDao;
+import com.mja.dao.worker.AgentManagerDao;
+import com.mja.dao.worker.InsuranceAgentDao;
 import com.mja.dao.client.ClientDao;
 import com.mja.dao.policy.CarInsurancePolicyDao;
 import com.mja.dao.policy.HomeInsurancePolicyDao;
 import com.mja.dao.policy.LifeInsurancePolicyDao;
 import com.mja.dao.policy.insuranceobject.CarDao;
 import com.mja.dao.policy.insuranceobject.HomeDao;
-import com.mja.model.agent.AgentManager;
-import com.mja.model.agent.InsuranceAgent;
+import com.mja.model.worker.AgentManager;
+import com.mja.model.worker.InsuranceAgent;
 import com.mja.model.client.Client;
 import com.mja.model.policy.*;
 import com.mja.model.policy.insuranceobject.Car;

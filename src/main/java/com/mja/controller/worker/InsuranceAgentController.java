@@ -1,4 +1,4 @@
-package com.mja.controller.agent;
+package com.mja.controller.worker;
 
 import com.mja.model.client.Client;
 import com.mja.service.client.ClientService;

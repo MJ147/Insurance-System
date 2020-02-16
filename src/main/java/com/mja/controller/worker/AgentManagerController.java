@@ -1,16 +1,16 @@
-package com.mja.controller.agent;
+package com.mja.controller.worker;
 
-import com.mja.model.agent.AgentManager;
-import com.mja.model.agent.InsuranceAgent;
+import com.mja.model.worker.AgentManager;
+import com.mja.model.worker.InsuranceAgent;
 import com.mja.model.client.Client;
 import com.mja.model.policy.CarInsurancePolicy;
 import com.mja.model.policy.HomeInsurancePolicy;
 import com.mja.model.policy.LifeInsurancePolicy;
 import com.mja.model.policy.insuranceobject.Car;
 import com.mja.model.policy.insuranceobject.Home;
-import com.mja.service.agent.AgentManagerService;
+import com.mja.service.worker.AgentManagerService;
 import com.mja.service.client.ClientService;
-import com.mja.service.agent.InsuranceAgentService;
+import com.mja.service.worker.InsuranceAgentService;
 import com.mja.service.policy.CarInsurancePolicyService;
 import com.mja.service.policy.HomeInsurancePolicyService;
 import com.mja.service.policy.LifeInsurancePolicyService;

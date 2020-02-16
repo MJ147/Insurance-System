@@ -1,4 +1,4 @@
-package com.mja.model.agent;
+package com.mja.model.worker;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
