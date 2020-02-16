@@ -2,7 +2,7 @@ package com.mja.model.client;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.mja.model.agent.InsuranceAgent;
+import com.mja.model.worker.InsuranceAgent;
 import com.mja.model.policy.InsurancePolicy;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
