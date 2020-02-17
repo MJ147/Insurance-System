@@ -29,4 +29,9 @@ public class InsuranceAgentServiceImpl implements InsuranceAgentService {
     public List<InsuranceAgent> findAll() {
         return insuranceAgentDao.findAll();
     }
+
+    @Override
+    public InsuranceAgent findFirstById(Long id) {
+        return insuranceAgentDao.findFirstById(id);
+    }
 }

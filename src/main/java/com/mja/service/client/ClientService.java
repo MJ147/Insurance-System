@@ -13,4 +13,6 @@ public interface ClientService {
     List<Client> removeById(Long id);
 
     List<Client> findAll();
+
+    Client findFirstById(Long id);
 }

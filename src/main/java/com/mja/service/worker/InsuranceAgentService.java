@@ -13,4 +13,6 @@ public interface InsuranceAgentService {
     List<InsuranceAgent> removeById(Long id);
 
     List<InsuranceAgent> findAll();
+
+    InsuranceAgent findFirstById(Long id);
 }

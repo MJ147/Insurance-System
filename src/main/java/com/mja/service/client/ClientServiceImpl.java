@@ -9,24 +9,29 @@ import java.util.List;
 @Service
 public class ClientServiceImpl implements ClientService {
 
-    ClientDao ClientDao;
+    ClientDao clientDao;
 
-    public ClientServiceImpl(ClientDao ClientDao) {
-        this.ClientDao = ClientDao;
+    public ClientServiceImpl(ClientDao clientDao) {
+        this.clientDao = clientDao;
     }
 
     @Override
     public Client save(Client client) {
-        return ClientDao.save(client);
+        return clientDao.save(client);
     }
 
     @Override
     public List<Client> removeById(Long id) {
-        return ClientDao.removeById(id);
+        return clientDao.removeById(id);
     }
 
     @Override
     public List<Client> findAll() {
-        return ClientDao.findAll();
+        return clientDao.findAll();
+    }
+
+    @Override
+    public Client findFirstById(Long id) {
+        return clientDao.findFirstById(id);
     }
 }

@@ -15,4 +15,6 @@ public interface InsuranceAgentDao extends CrudRepository<InsuranceAgent, Long> 
 
     List<InsuranceAgent> findAll();
 
+    InsuranceAgent findFirstById(Long id);
+
 }

@@ -15,4 +15,7 @@ public interface ClientDao extends CrudRepository<Client, Long> {
 
     List<Client>findAll();
 
+    Client findFirstById(Long id);
+
+
 }
