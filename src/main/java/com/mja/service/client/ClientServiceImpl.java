@@ -31,6 +31,11 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
+    public List<Client> findAllByInsuranceAgentIsNull() {
+        return clientDao.findAllByInsuranceAgentIsNull();
+    }
+
+    @Override
     public Client findFirstById(Long id) {
         return clientDao.findFirstById(id);
     }

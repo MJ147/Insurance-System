@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.List;
 
 @RequestMapping("/agent")
 @RestController
@@ -49,6 +50,17 @@ public class InsuranceAgentController {
 
         return ResponseEntity.ok(clientService.save(client));
     }
+
+    @GetMapping("/list_all_clients")
+    public ResponseEntity<List<Client>> listAllClients() {
+        return ResponseEntity.ok(clientService.findAll());
+    }
+
+    @GetMapping("list_clients_without_agent")
+    public ResponseEntity<List<Client>> listClientsWithoutAgent() {
+        return ResponseEntity.ok(clientService.findAllByInsuranceAgentIsNull());
+    }
+
 
 
 }

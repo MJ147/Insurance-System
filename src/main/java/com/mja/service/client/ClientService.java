@@ -14,5 +14,7 @@ public interface ClientService {
 
     List<Client> findAll();
 
+    List<Client>findAllByInsuranceAgentIsNull();
+
     Client findFirstById(Long id);
 }
