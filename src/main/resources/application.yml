@@ -5,7 +5,7 @@ spring:
   datasource:
     username: postgres
     password: postgres
-    url: jdbc:postgresql://localhost:5432/insurance_system
+    url: jdbc:postgresql://localhost:5433/insurance-system
     driver-class-name: org.postgresql.Driver
     initialization-mode: never
   jpa:

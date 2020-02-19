@@ -35,7 +35,7 @@ public class InsuranceAgentController {
     }
 
     //CLIENT
-    @PostMapping("/add_client")
+    @PostMapping("/add-client")
     public ResponseEntity<Client> addClient(@RequestBody Client client, @RequestParam Long agentId) {
         InsuranceAgent insuranceAgent = insuranceAgentService.findFirstById(agentId);
         insuranceAgent.setClients(Arrays.asList(client));
@@ -43,7 +43,7 @@ public class InsuranceAgentController {
         return ResponseEntity.ok(clientService.save(client));
     }
 
-    @PostMapping("/update_client")
+    @PostMapping("/update-client")
     public ResponseEntity<Client> updateClient(@RequestParam(required = true) Long clientId,
                                                @RequestParam(required = false) String firstName,
                                                @RequestParam(required = false) String secondName,
@@ -64,58 +64,58 @@ public class InsuranceAgentController {
         return ResponseEntity.ok(clientService.save(client));
     }
 
-    @GetMapping("/list_all_clients")
+    @GetMapping("/list-all-clients")
     public ResponseEntity<List<Client>> listAllClients() {
         return ResponseEntity.ok(clientService.findAll());
     }
 
-    @GetMapping("list_clients_without_agent")
+    @GetMapping("list-clients-without-agent")
     public ResponseEntity<List<Client>> listClientsWithoutAgent() {
         return ResponseEntity.ok(clientService.findAllByInsuranceAgentIsNull());
     }
 
     // LIFE INSURANCE
-    @PostMapping("/add_life_policy")
+    @PostMapping("/add-life-policy")
     public ResponseEntity<LifeInsurancePolicy> addLifeInsurancePolicy(@RequestBody LifeInsurancePolicy lifeInsurancePolicy) {
         return ResponseEntity.ok(lifeInsurancePolicyService.save(lifeInsurancePolicy));
     }
 
-//    @PostMapping("/remove_flag_life_policy")
+//    @PostMapping("/remove-flag-life-policy")
 //    public ResponseEntity<List<LifeInsurancePolicy>> removeLifeInsurancePolicy(@RequestParam Long id) {
 //        return ResponseEntity.ok(lifeInsurancePolicyService.removeById(id));
 //    }
 
-    @GetMapping("/list_life_policies")
+    @GetMapping("/list-life-policies")
     public ResponseEntity<List<LifeInsurancePolicy>> listLifeInsurancePolicies() {
         return ResponseEntity.ok(lifeInsurancePolicyService.findAll());
     }
     // CAR POLICY
-    @PostMapping("/add_car_policy")
+    @PostMapping("/add-car-policy")
     public ResponseEntity<CarInsurancePolicy> addCarInsurancePolicy(@RequestBody CarInsurancePolicy carInsurancePolicy) {
         return ResponseEntity.ok(carInsurancePolicyService.save(carInsurancePolicy));
     }
 
-//    @PostMapping("/remove_car_policy")
+//    @PostMapping("/remove-car-policy")
 //    public ResponseEntity<List<CarInsurancePolicy>> removeCarInsurancePolicy(@RequestParam Long id) {
 //        return ResponseEntity.ok(carInsurancePolicyService.removeById(id));
 //    }
 
-    @GetMapping("/list_car_policies")
+    @GetMapping("/list-car-policies")
     public ResponseEntity<List<CarInsurancePolicy>> listCarInsurancePolicies() {
         return ResponseEntity.ok(carInsurancePolicyService.findAll());
     }
     // HOME POLICY
-    @PostMapping("/add_home_policy")
+    @PostMapping("/add-home-policy")
     public ResponseEntity<HomeInsurancePolicy> addHomeInsurancePolicy(@RequestBody HomeInsurancePolicy homeInsurancePolicy) {
         return ResponseEntity.ok(homeInsurancePolicyService.save(homeInsurancePolicy));
     }
 
-//    @PostMapping("/remove_home_policy")
+//    @PostMapping("/remove-home-policy")
 //    public ResponseEntity<List<HomeInsurancePolicy>> removeHomeInsurancePolicy(@RequestParam Long id) {
 //        return ResponseEntity.ok(homeInsurancePolicyService.removeById(id));
 //    }
 
-    @GetMapping("/list_home_policies")
+    @GetMapping("/list-home-policies")
     public ResponseEntity<List<HomeInsurancePolicy>> listHomeInsurancePolicies() {
         return ResponseEntity.ok(homeInsurancePolicyService.findAll());
     }
