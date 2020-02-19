@@ -17,4 +17,6 @@ public interface ClientService {
     List<Client>findAllByInsuranceAgentIsNull();
 
     Client findFirstById(Long id);
+
+    Client update(Long clientId, String firstName, String secondName, Long insuranceAgentId);
 }
