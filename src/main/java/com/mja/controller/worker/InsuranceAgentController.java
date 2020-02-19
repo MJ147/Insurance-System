@@ -48,20 +48,8 @@ public class InsuranceAgentController {
                                                @RequestParam(required = false) String firstName,
                                                @RequestParam(required = false) String secondName,
                                                @RequestParam(required = false) Long insuranceAgentId) {
-        Client client =  clientService.findFirstById(clientId);
-        if (firstName != null) {
-            client.setFirstName(firstName);
-        }
-        if (secondName != null) {
-            client.setSecondName(secondName);
-        }
-        if (insuranceAgentId != null) {
-            InsuranceAgent insuranceAgent = insuranceAgentService.findFirstById(insuranceAgentId);
-            client.setInsuranceAgent(insuranceAgent);
-            insuranceAgent.setClients(Arrays.asList(client));
-        }
 
-        return ResponseEntity.ok(clientService.save(client));
+        return ResponseEntity.ok(clientService.update(clientId,firstName,secondName,insuranceAgentId));
     }
 
     @GetMapping("/list-all-clients")
@@ -74,16 +62,21 @@ public class InsuranceAgentController {
         return ResponseEntity.ok(clientService.findAllByInsuranceAgentIsNull());
     }
 
+    @PostMapping("/flag-client")
+    public ResponseEntity<Client> flagClient(@RequestParam Long id) {
+        return ResponseEntity.ok(clientService.setFlag(id));
+    }
+
     // LIFE INSURANCE
     @PostMapping("/add-life-policy")
     public ResponseEntity<LifeInsurancePolicy> addLifeInsurancePolicy(@RequestBody LifeInsurancePolicy lifeInsurancePolicy) {
         return ResponseEntity.ok(lifeInsurancePolicyService.save(lifeInsurancePolicy));
     }
 
-//    @PostMapping("/remove-flag-life-policy")
-//    public ResponseEntity<List<LifeInsurancePolicy>> removeLifeInsurancePolicy(@RequestParam Long id) {
-//        return ResponseEntity.ok(lifeInsurancePolicyService.removeById(id));
-//    }
+    @PostMapping("/flag-life-policy")
+    public ResponseEntity<List<LifeInsurancePolicy>> flagInsurancePolicy(@RequestParam Long id) {
+        return ResponseEntity.ok(lifeInsurancePolicyService.removeById(id));
+    }
 
     @GetMapping("/list-life-policies")
     public ResponseEntity<List<LifeInsurancePolicy>> listLifeInsurancePolicies() {
