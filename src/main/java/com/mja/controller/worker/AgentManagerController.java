@@ -47,122 +47,122 @@ public class AgentManagerController {
     }
 
     // AGENT
-    @PostMapping("/add_agent")
+    @PostMapping("/add-agent")
     public ResponseEntity<InsuranceAgent> addInsuranceAgent(@RequestBody InsuranceAgent insuranceAgent) {
         return ResponseEntity.ok(insuranceAgentService.save(insuranceAgent));
     }
 
-    @PostMapping("/remove_agent")
+    @PostMapping("/remove-agent")
     public ResponseEntity<List<InsuranceAgent>> removeInsuranceAgent(@RequestParam Long id) {
         return ResponseEntity.ok(insuranceAgentService.removeById(id));
     }
 
-    @GetMapping("/list_all_agents")
+    @GetMapping("/list-all-agents")
     public ResponseEntity<List<InsuranceAgent>> listAllInsuranceAgents() {
         return ResponseEntity.ok(insuranceAgentService.findAll());
     }
     // MANAGER
-    @PostMapping("/add_manager")
+    @PostMapping("/add-manager")
     public ResponseEntity<AgentManager> addAgentManager(@RequestBody AgentManager agentManager) {
         return ResponseEntity.ok(agentManagerService.save(agentManager));
     }
 
-    @PostMapping("/remove_manager")
+    @PostMapping("/remove-manager")
     public ResponseEntity<List<AgentManager>> removeAgentManager(@RequestParam Long id) {
         return ResponseEntity.ok(agentManagerService.removeById(id));
     }
 
-    @GetMapping("/list_all_managers")
+    @GetMapping("/list-all-managers")
     public ResponseEntity<List<AgentManager>> listAllAgentsManager() {
         return ResponseEntity.ok(agentManagerService.findAll());
     }
     // CLIENT
-    @PostMapping("/add_client")
+    @PostMapping("/add-client")
     public ResponseEntity<Client> addClient(@RequestBody Client client) {
         return ResponseEntity.ok(clientService.save(client));
     }
 
-    @PostMapping("/remove_client")
+    @PostMapping("/remove-client")
     public ResponseEntity<List<Client>> removeClient(@RequestParam Long id) {
         return ResponseEntity.ok(clientService.removeById(id));
     }
 
-    @GetMapping("/list_all_clients")
+    @GetMapping("/list-all-clients")
     public ResponseEntity<List<Client>> listAllClients() {
         return ResponseEntity.ok(clientService.findAll());
     }
     // LIFE POLICY
-    @PostMapping("/add_life_policy")
+    @PostMapping("/add-life-policy")
     public ResponseEntity<LifeInsurancePolicy> addLifeInsurancePolicy(@RequestBody LifeInsurancePolicy lifeInsurancePolicy) {
         return ResponseEntity.ok(lifeInsurancePolicyService.save(lifeInsurancePolicy));
     }
 
-    @PostMapping("/remove_life_policy")
+    @PostMapping("/remove-life-policy")
     public ResponseEntity<List<LifeInsurancePolicy>> removeLifeInsurancePolicy(@RequestParam Long id) {
         return ResponseEntity.ok(lifeInsurancePolicyService.removeById(id));
     }
 
-    @GetMapping("/list_life_policies")
+    @GetMapping("/list-life-policies")
     public ResponseEntity<List<LifeInsurancePolicy>> listLifeInsurancePolicies() {
         return ResponseEntity.ok(lifeInsurancePolicyService.findAll());
     }
     // CAR POLICY
-    @PostMapping("/add_car_policy")
+    @PostMapping("/add-car-policy")
     public ResponseEntity<CarInsurancePolicy> addCarInsurancePolicy(@RequestBody CarInsurancePolicy carInsurancePolicy) {
         return ResponseEntity.ok(carInsurancePolicyService.save(carInsurancePolicy));
     }
 
-    @PostMapping("/remove_car_policy")
+    @PostMapping("/remove-car-policy")
     public ResponseEntity<List<CarInsurancePolicy>> removeCarInsurancePolicy(@RequestParam Long id) {
         return ResponseEntity.ok(carInsurancePolicyService.removeById(id));
     }
 
-    @GetMapping("/list_car_policies")
+    @GetMapping("/list-car-policies")
     public ResponseEntity<List<CarInsurancePolicy>> listCarInsurancePolicies() {
         return ResponseEntity.ok(carInsurancePolicyService.findAll());
     }
     // HOME POLICY
-    @PostMapping("/add_home_policy")
+    @PostMapping("/add-home-policy")
     public ResponseEntity<HomeInsurancePolicy> addHomeInsurancePolicy(@RequestBody HomeInsurancePolicy homeInsurancePolicy) {
         return ResponseEntity.ok(homeInsurancePolicyService.save(homeInsurancePolicy));
     }
 
-    @PostMapping("/remove_home_policy")
+    @PostMapping("/remove-home-policy")
     public ResponseEntity<List<HomeInsurancePolicy>> removeHomeInsurancePolicy(@RequestParam Long id) {
         return ResponseEntity.ok(homeInsurancePolicyService.removeById(id));
     }
 
-    @GetMapping("/list_home_policies")
+    @GetMapping("/list-home-policies")
     public ResponseEntity<List<HomeInsurancePolicy>> listHomeInsurancePolicies() {
         return ResponseEntity.ok(homeInsurancePolicyService.findAll());
     }
     // CAR
-    @PostMapping("/add_car")
+    @PostMapping("/add-car")
     public ResponseEntity<Car> addCar(@RequestBody Car car) {
         return ResponseEntity.ok(carService.save(car));
     }
 
-    @PostMapping("/remove_car")
+    @PostMapping("/remove-car")
     public ResponseEntity<List<Car>> removeCar(@RequestParam Long id) {
         return ResponseEntity.ok(carService.removeById(id));
     }
 
-    @GetMapping("/list_all_cars")
+    @GetMapping("/list-all-cars")
     public ResponseEntity<List<Car>> listAllInsuranceObject() {
         return ResponseEntity.ok(carService.findAll());
     }
     // Home
-    @PostMapping("/add_home")
+    @PostMapping("/add-home")
     public ResponseEntity<Home> addHome(@RequestBody Home home) {
         return ResponseEntity.ok(homeService.save(home));
     }
 
-    @PostMapping("/remove_home")
+    @PostMapping("/remove-home")
     public ResponseEntity<List<Home>> removeHome(@RequestParam Long id) {
         return ResponseEntity.ok(homeService.removeById(id));
     }
 
-    @GetMapping("/list_all_homes")
+    @GetMapping("/list-all-homes")
     public ResponseEntity<List<Home>> listAllHome() {
         return ResponseEntity.ok(homeService.findAll());
     }

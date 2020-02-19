@@ -18,7 +18,7 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-    @PostMapping("/add_client")
+    @PostMapping()
     public ResponseEntity<Client> addClient(@RequestBody Client client) {
         return ResponseEntity.ok(clientService.save(client));
     }
