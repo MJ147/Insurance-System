@@ -19,4 +19,6 @@ public interface ClientService {
     Client findFirstById(Long id);
 
     Client update(Long clientId, String firstName, String secondName, Long insuranceAgentId);
+
+    Client setFlag(Long id);
 }

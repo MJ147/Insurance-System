@@ -18,7 +18,7 @@ public class AgentManager {
     private Long id;
     private String firstName;
     private String secondName;
-    @OneToMany(mappedBy = "agentManager", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "agentManager")
     @JsonManagedReference
     private List<InsuranceAgent> insuranceAgents = new ArrayList<>();
 

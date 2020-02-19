@@ -63,8 +63,8 @@ public class InsuranceAgentController {
     }
 
     @PostMapping("/flag-client")
-    public ResponseEntity<List<Client>> flagClient(@RequestParam Long id) {
-        return ResponseEntity.ok(clientService.removeById(id));
+    public ResponseEntity<Client> flagClient(@RequestParam Long id) {
+        return ResponseEntity.ok(clientService.setFlag(id));
     }
 
     // LIFE INSURANCE

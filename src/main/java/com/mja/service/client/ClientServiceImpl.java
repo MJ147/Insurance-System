@@ -62,4 +62,11 @@ public class ClientServiceImpl implements ClientService {
         return clientDao.save(client);
     }
 
+    @Override
+    public Client setFlag(Long id) {
+        Client client = clientDao.findFirstById(id);
+        client.setToRemove(true);
+        return clientDao.save(client);
+    }
+
 }

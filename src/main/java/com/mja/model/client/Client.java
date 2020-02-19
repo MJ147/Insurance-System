@@ -22,6 +22,7 @@ public class Client {
     private Long id;
     private String firstName;
     private String secondName;
+    private boolean toRemove = false;
     @OneToMany(mappedBy = "client")
     @JsonManagedReference
     private List<InsurancePolicy> insurancePolicies = new ArrayList<>();
@@ -34,13 +35,6 @@ public class Client {
     public Client(String firstName, String secondName) {
         this.firstName = firstName;
         this.secondName = secondName;
-        this.insurancePolicies = new ArrayList<>();
-    }
-
-    public Client(String firstName, String secondName, InsurancePolicy insurancePolicies) {
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.insurancePolicies.add(insurancePolicies);
     }
 
     public Client(String firstName, String secondName, List<InsurancePolicy> insurancePolicies) {
