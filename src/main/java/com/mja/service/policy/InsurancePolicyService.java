@@ -1,16 +1,13 @@
 package com.mja.service.policy;
 
-import com.mja.model.policy.LifeInsurancePolicy;
+import com.mja.model.policy.InsurancePolicy;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public interface LifeInsurancePolicyService {
+public interface InsurancePolicyService {
 
-    LifeInsurancePolicy save(LifeInsurancePolicy lifeInsurancePolicy);
+    InsurancePolicy findFirstById(Long id);
 
-    List<LifeInsurancePolicy> removeById(Long id);
+    InsurancePolicy save(InsurancePolicy insurancePolicy);
 
-    List<LifeInsurancePolicy> findAll();
 }

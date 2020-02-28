@@ -1,32 +1,27 @@
 package com.mja.service.policy;
 
-import com.mja.dao.policy.LifeInsurancePolicyDao;
-import com.mja.model.policy.LifeInsurancePolicy;
+import com.mja.dao.policy.InsurancePolicyDao;
+import com.mja.model.policy.InsurancePolicy;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class LifeInsurancePolicyServiceImpl implements LifeInsurancePolicyService {
+public class InsurancePolicyServiceImpl implements InsurancePolicyService {
 
-    LifeInsurancePolicyDao lifeInsurancePolicyDao;
+    InsurancePolicyDao insurancePolicyDao;
 
-    public LifeInsurancePolicyServiceImpl(LifeInsurancePolicyDao lifeInsurancePolicyDao) {
-        this.lifeInsurancePolicyDao = lifeInsurancePolicyDao;
+    public InsurancePolicyServiceImpl(InsurancePolicyDao insurancePolicyDao) {
+        this.insurancePolicyDao = insurancePolicyDao;
     }
 
     @Override
-    public LifeInsurancePolicy save(LifeInsurancePolicy lifeInsurancePolicy) {
-        return lifeInsurancePolicyDao.save(lifeInsurancePolicy);
+    public InsurancePolicy findFirstById(Long id) {
+        return insurancePolicyDao.findFirstById(id);
     }
 
     @Override
-    public List<LifeInsurancePolicy> removeById(Long id) {
-        return lifeInsurancePolicyDao.removeById(id);
+    public InsurancePolicy save(InsurancePolicy insurancePolicy) {
+        return insurancePolicyDao.save(insurancePolicy);
     }
 
-    @Override
-    public List<LifeInsurancePolicy> findAll() {
-        return lifeInsurancePolicyDao.findAll();
-    }
+
 }

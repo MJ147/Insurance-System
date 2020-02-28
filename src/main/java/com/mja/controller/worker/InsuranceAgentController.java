@@ -3,11 +3,13 @@ package com.mja.controller.worker;
 import com.mja.model.client.Client;
 import com.mja.model.policy.CarInsurancePolicy;
 import com.mja.model.policy.HomeInsurancePolicy;
+import com.mja.model.policy.InsurancePolicy;
 import com.mja.model.policy.LifeInsurancePolicy;
 import com.mja.model.worker.InsuranceAgent;
 import com.mja.service.client.ClientService;
 import com.mja.service.policy.CarInsurancePolicyService;
 import com.mja.service.policy.HomeInsurancePolicyService;
+import com.mja.service.policy.InsurancePolicyService;
 import com.mja.service.policy.LifeInsurancePolicyService;
 import com.mja.service.worker.InsuranceAgentService;
 import org.springframework.http.ResponseEntity;
@@ -25,13 +27,16 @@ public class InsuranceAgentController {
     private LifeInsurancePolicyService lifeInsurancePolicyService;
     private CarInsurancePolicyService carInsurancePolicyService;
     private HomeInsurancePolicyService homeInsurancePolicyService;
+    private InsurancePolicyService insurancePolicyService;
 
-    public InsuranceAgentController(ClientService clientService, InsuranceAgentService insuranceAgentService, LifeInsurancePolicyService lifeInsurancePolicyService, CarInsurancePolicyService carInsurancePolicyService, HomeInsurancePolicyService homeInsurancePolicyService) {
+    public InsuranceAgentController(ClientService clientService, InsuranceAgentService insuranceAgentService, LifeInsurancePolicyService lifeInsurancePolicyService,
+                                    CarInsurancePolicyService carInsurancePolicyService, HomeInsurancePolicyService homeInsurancePolicyService, InsurancePolicyService insurancePolicyService) {
         this.clientService = clientService;
         this.insuranceAgentService = insuranceAgentService;
         this.lifeInsurancePolicyService = lifeInsurancePolicyService;
         this.carInsurancePolicyService = carInsurancePolicyService;
         this.homeInsurancePolicyService = homeInsurancePolicyService;
+        this.insurancePolicyService = insurancePolicyService;
     }
 
     //CLIENT
@@ -49,7 +54,7 @@ public class InsuranceAgentController {
                                                @RequestParam(required = false) String secondName,
                                                @RequestParam(required = false) Long insuranceAgentId) {
 
-        return ResponseEntity.ok(clientService.update(clientId,firstName,secondName,insuranceAgentId));
+        return ResponseEntity.ok(clientService.update(clientId, firstName, secondName, insuranceAgentId));
     }
 
     @GetMapping("/list-all-clients")
@@ -73,45 +78,39 @@ public class InsuranceAgentController {
         return ResponseEntity.ok(lifeInsurancePolicyService.save(lifeInsurancePolicy));
     }
 
-    @PostMapping("/flag-life-policy")
-    public ResponseEntity<List<LifeInsurancePolicy>> flagInsurancePolicy(@RequestParam Long id) {
-        return ResponseEntity.ok(lifeInsurancePolicyService.removeById(id));
-    }
-
     @GetMapping("/list-life-policies")
     public ResponseEntity<List<LifeInsurancePolicy>> listLifeInsurancePolicies() {
         return ResponseEntity.ok(lifeInsurancePolicyService.findAll());
     }
+
     // CAR POLICY
     @PostMapping("/add-car-policy")
     public ResponseEntity<CarInsurancePolicy> addCarInsurancePolicy(@RequestBody CarInsurancePolicy carInsurancePolicy) {
         return ResponseEntity.ok(carInsurancePolicyService.save(carInsurancePolicy));
     }
 
-//    @PostMapping("/remove-car-policy")
-//    public ResponseEntity<List<CarInsurancePolicy>> removeCarInsurancePolicy(@RequestParam Long id) {
-//        return ResponseEntity.ok(carInsurancePolicyService.removeById(id));
-//    }
-
     @GetMapping("/list-car-policies")
     public ResponseEntity<List<CarInsurancePolicy>> listCarInsurancePolicies() {
         return ResponseEntity.ok(carInsurancePolicyService.findAll());
     }
+
     // HOME POLICY
     @PostMapping("/add-home-policy")
     public ResponseEntity<HomeInsurancePolicy> addHomeInsurancePolicy(@RequestBody HomeInsurancePolicy homeInsurancePolicy) {
         return ResponseEntity.ok(homeInsurancePolicyService.save(homeInsurancePolicy));
     }
 
-//    @PostMapping("/remove-home-policy")
-//    public ResponseEntity<List<HomeInsurancePolicy>> removeHomeInsurancePolicy(@RequestParam Long id) {
-//        return ResponseEntity.ok(homeInsurancePolicyService.removeById(id));
-//    }
-
     @GetMapping("/list-home-policies")
     public ResponseEntity<List<HomeInsurancePolicy>> listHomeInsurancePolicies() {
         return ResponseEntity.ok(homeInsurancePolicyService.findAll());
     }
 
+    // ALL KIND OF POLICY
+    @PostMapping("/flag-policy")
+    public ResponseEntity<InsurancePolicy> flagInsurancePolicy(@RequestParam Long id) {
+        InsurancePolicy insurancePolicy = insurancePolicyService.findFirstById(id);
+        insurancePolicy.setToRemove(true);
+        return ResponseEntity.ok(insurancePolicyService.save(insurancePolicy));
+    }
 
 }

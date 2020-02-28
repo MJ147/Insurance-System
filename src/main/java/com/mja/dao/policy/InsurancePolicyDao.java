@@ -1,19 +1,14 @@
 package com.mja.dao.policy;
 
-import com.mja.model.policy.HomeInsurancePolicy;
-import com.mja.model.policy.LifeInsurancePolicy;
+import com.mja.model.policy.InsurancePolicy;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public interface LifeInsurancePolicyDao extends CrudRepository<LifeInsurancePolicy, Long> {
+public interface InsurancePolicyDao extends CrudRepository<InsurancePolicy, Long> {
 
-    LifeInsurancePolicy save(LifeInsurancePolicy lifeInsurancePolicy);
+    InsurancePolicy findFirstById(Long id);
 
-    List<LifeInsurancePolicy> removeById(Long id);
-
-    List<LifeInsurancePolicy> findAll();
+    InsurancePolicy save(InsurancePolicy insurancePolicy);
 
 }

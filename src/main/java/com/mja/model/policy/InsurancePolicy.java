@@ -21,4 +21,11 @@ public class InsurancePolicy {
     @JsonBackReference
     @ToString.Exclude
     private Client client;
+    private boolean toRemove = false;
+    @Enumerated
+    private TypeOfPolicy typeOfPolicy;
+
+    public InsurancePolicy(TypeOfPolicy typeOfPolicy) {
+        this.typeOfPolicy = typeOfPolicy;
+    }
 }
