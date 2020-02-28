@@ -5,7 +5,8 @@ import com.mja.model.policy.insuranceobject.Home;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import java.time.LocalDate;
 
 @Entity
@@ -13,17 +14,14 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 public class HomeInsurancePolicy extends InsurancePolicy {
 
-    @Enumerated
-    private TypeOfPolicy typeOfPolicy;
     private LocalDate startDate;
     private LocalDate endDate;
-    @OneToOne(mappedBy = "homeInsurancePolicy" )
+    @OneToOne(mappedBy = "homeInsurancePolicy")
     @JsonManagedReference
     Home home;
 
     public HomeInsurancePolicy(TypeOfPolicy typeOfPolicy, LocalDate startDate, LocalDate endDate, Home home) {
-        super();
-        this.typeOfPolicy = typeOfPolicy;
+        super(typeOfPolicy);
         this.startDate = startDate;
         this.endDate = endDate;
         this.home = home;

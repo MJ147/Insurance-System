@@ -3,7 +3,8 @@ package com.mja.model.policy;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import java.time.LocalDate;
 
 @Entity
@@ -11,8 +12,6 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 public class LifeInsurancePolicy extends InsurancePolicy {
 
-    @Enumerated
-    private TypeOfPolicy typeOfPolicy;
     private LocalDate startDate;
     private LocalDate endDate;
     private int Age;
@@ -20,8 +19,7 @@ public class LifeInsurancePolicy extends InsurancePolicy {
     private SexEnum sexEnum;
 
     public LifeInsurancePolicy(TypeOfPolicy typeOfPolicy, LocalDate startDate, LocalDate endDate, int age, SexEnum sexEnum) {
-        super();
-        this.typeOfPolicy = typeOfPolicy;
+        super(typeOfPolicy);
         this.startDate = startDate;
         this.endDate = endDate;
         Age = age;
